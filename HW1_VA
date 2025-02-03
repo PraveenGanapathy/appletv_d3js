@@ -1,0 +1,49 @@
+PRAGMA table_info ('data');
+
+-- listing the tv and movies count
+
+SELECT count( * ),
+       type
+  FROM data
+ WHERE genres != ''
+ GROUP BY type;
+ 
+-- *Average IMDB rating of all movies*
+
+SELECT avg(imdbAverageRating) AS Average_IMDB_rating_of_all_movies
+  FROM data;
+  
+-- *Top 10 movies with the highest IMDB rating*
+
+SELECT title,
+       imdbAverageRating,
+       type
+  FROM data
+ WHERE data.type = 'movie'
+ ORDER BY CAST (imdbAverageRating AS INT) DESC
+ LIMIT 10;
+ 
+-- ALl movie genres by their average IMDB rating
+
+SELECT genres,
+       AVG(imdbAverageRating) AS average_rating,
+       COUNT(imdbAverageRating) AS movie_count,
+       GROUP_CONCAT(title) AS titles
+  FROM data
+ WHERE genres != '' AND 
+       type = 'movie'
+ GROUP BY genres
+ ORDER BY average_rating DESC;
+ 
+-- Movie Release Year Statistics, grouped by release year and sorted by movie count and skipping 2025 as there is not suffient ennough data to analyse
+
+SELECT GROUP_CONCAT(title) AS Movie_Names,
+       releaseYear AS Year,
+       count(title) AS Movie_count,
+       AVG(imdbAverageRating) AS average_rating
+  FROM data
+ WHERE title! = '' AND 
+       releaseYear NOT IN ('',2025) AND 
+       type = 'movie'
+ GROUP BY releaseYear
+ ORDER BY Movie_count DESC;

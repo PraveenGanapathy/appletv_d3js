@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple TV+ Content Explorer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.css">
+    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h2 class="text-center my-4">Apple TV+ Content Explorer</h2>
+
+        <div class="controls-container mb-4">
+            <div class="year-control">
+                <label for="year-slider">Year Range:</label>
+                <div id="year-slider"></div>
+                <p class="text-center" id="year-label">Year: 2000 - 2024</p>
+            </div>
+            <div class="text-center">
+                <button id="play-button" class="btn btn-primary mb-3">Play</button>
+            </div>
+        </div>
+
+        <div class="visualization-container">
+            <div id="visualization">
+                <div class="charts-grid">
+                    <div id="chart-type" class="chart-box">
+                        <h3 class="chart-title">Content Type Distribution</h3>
+                    </div>
+                    <div id="chart-ratings" class="chart-box">
+                        <h3 class="chart-title">Rating Distribution</h3>
+                    </div>
+                    <div id="chart-top-genres" class="chart-box">
+                        <h3 class="chart-title">Top Genres</h3>
+                    </div>
+                    <div id="chart-genre-trend" class="chart-box">
+                        <h3 class="chart-title">Genre Trends Over Time</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="countries.html" class="btn btn-secondary">View Available Countries</a>
+        </div>
+    </div>
+
+    <div id="tooltip" class="tooltip"></div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.5.0/nouislider.min.js"></script>
+    <script src="static/script.js"></script>
+
+    <footer class="footer mt-5 py-3 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Data Source</h5>
+                    <a href="https://www.kaggle.com/datasets/octopusteam/full-apple-tv-dataset/data" target="_blank"
+                        class="text-decoration-none">
+                        <img src="https://www.kaggle.com/static/images/site-logo.svg" alt="Kaggle" height="20">
+                        Apple TV+ Dataset
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <h5>Technologies Used</h5>
+                    <div class="tech-stack">
+                        <strong>Frontend:</strong>
+                        <ul class="list-unstyled">
+                            <li>
+                                <img src="https://d3js.org/logo.svg" alt="D3.js" height="20">
+                                D3.js v7
+                            </li>
+                            <li>
+                                <i class="fab fa-bootstrap text-purple" aria-hidden="true"></i>
+                                Bootstrap 4.5
+                            </li>
+                            <li>
+                                <img src="https://refreshless.com/nouislider/nouislider.png" alt="noUiSlider"
+                                    height="20">
+                            </li>
+                        </ul>
+                        <strong>Backend:</strong>
+                        <ul class="list-unstyled">
+                            <li>
+                                <img src="https://www.pinpng.com/pngs/m/62-627221_skills-images-flask-flask-python-sticker-hd-png.png"
+                                    alt="Flask" height="20">
+                                Flask
+                            </li>
+                            <li>
+                                <img src="https://www.sqlite.org/images/sqlite370_banner.gif" alt="SQLite" height="20">
+                                SQLite3
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <h5>About</h5>
+                    <p>Interactive visualization of Apple TV+ content exploring content types, ratings, genres, and
+                        geographical availability.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div class="portrait-overlay">
+
+        <div class="portrait-message">
+            <div class="portrait-icon">📱 ↔️ 💻</div>
+            <h2>Please Rotate Your Device</h2>
+            <p>This visualization works best in landscape mode.<br>
+                Please rotate your device for the best experience.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
