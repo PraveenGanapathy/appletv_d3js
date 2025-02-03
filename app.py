@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, jsonify, request
 import sqlite3
 from flask import send_from_directory
@@ -5,7 +6,9 @@ from flask import send_from_directory
 app = Flask(__name__)
 
 def get_db_connection():
-    conn = sqlite3.connect('apple_tv.db')
+    # Use relative path for database
+    db_path = os.path.join(os.path.dirname(__file__), 'Apple_tv.db')
+    conn = sqlite3.connect(db_path)
     conn.row_factory = sqlite3.Row
     return conn
 
